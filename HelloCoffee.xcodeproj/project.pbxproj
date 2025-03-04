@@ -17,9 +17,10 @@
 		EFED0F292D76BD64004D09A0 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED0F282D76BD64004D09A0 /* NumberFormatter.swift */; };
 		EFED0F2C2D76BF03004D09A0 /* OrderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED0F2B2D76BF03004D09A0 /* OrderCellView.swift */; };
 		EFED0F2F2D76C7A7004D09A0 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED0F2E2D76C7A7004D09A0 /* AppEnvironment.swift */; };
-		EFED0F402D76D6C7004D09A0 /* AddCoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED0F3F2D76D6C7004D09A0 /* AddCoffeeView.swift */; };
+		EFED0F402D76D6C7004D09A0 /* AddEditCoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED0F3F2D76D6C7004D09A0 /* AddEditCoffeeView.swift */; };
 		EFED0F422D76D936004D09A0 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED0F412D76D936004D09A0 /* View+Ext.swift */; };
 		EFED0F442D76DE6C004D09A0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED0F432D76DE6C004D09A0 /* String+Ext.swift */; };
+		EFED0F472D770E97004D09A0 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED0F462D770E97004D09A0 /* OrderDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +46,11 @@
 		EFED0F2B2D76BF03004D09A0 /* OrderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellView.swift; sourceTree = "<group>"; };
 		EFED0F2E2D76C7A7004D09A0 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		EFED0F342D76CF8A004D09A0 /* HelloCoffeeE2ETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloCoffeeE2ETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFED0F3F2D76D6C7004D09A0 /* AddCoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoffeeView.swift; sourceTree = "<group>"; };
+		EFED0F3F2D76D6C7004D09A0 /* AddEditCoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditCoffeeView.swift; sourceTree = "<group>"; };
 		EFED0F412D76D936004D09A0 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		EFED0F432D76DE6C004D09A0 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		EFED0F452D76F2CA004D09A0 /* HelloCoffee.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = HelloCoffee.xctestplan; sourceTree = "<group>"; };
+		EFED0F462D770E97004D09A0 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -151,7 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				EFED0F2B2D76BF03004D09A0 /* OrderCellView.swift */,
-				EFED0F3F2D76D6C7004D09A0 /* AddCoffeeView.swift */,
+				EFED0F3F2D76D6C7004D09A0 /* AddEditCoffeeView.swift */,
+				EFED0F462D770E97004D09A0 /* OrderDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -274,10 +277,11 @@
 			files = (
 				EFED0F1D2D76B492004D09A0 /* ContentView.swift in Sources */,
 				EFED0F2C2D76BF03004D09A0 /* OrderCellView.swift in Sources */,
+				EFED0F472D770E97004D09A0 /* OrderDetailView.swift in Sources */,
 				EFED0F422D76D936004D09A0 /* View+Ext.swift in Sources */,
 				EFED0F292D76BD64004D09A0 /* NumberFormatter.swift in Sources */,
 				EFED0F262D76B8AC004D09A0 /* CoffeeModel.swift in Sources */,
-				EFED0F402D76D6C7004D09A0 /* AddCoffeeView.swift in Sources */,
+				EFED0F402D76D6C7004D09A0 /* AddEditCoffeeView.swift in Sources */,
 				EFED0F1E2D76B492004D09A0 /* HelloCoffeeApp.swift in Sources */,
 				EFED0F2F2D76C7A7004D09A0 /* AppEnvironment.swift in Sources */,
 				EFED0F242D76B52F004D09A0 /* Order.swift in Sources */,

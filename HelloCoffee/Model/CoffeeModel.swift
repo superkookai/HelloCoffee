@@ -33,4 +33,32 @@ class CoffeeModel: ObservableObject {
             fatalError("Error placing order: \(error.localizedDescription)")
         }
     }
+    
+    func deleteOrder(orderId: Int) async {
+        do {
+            let deleteOrder = try await webservice.deleteOrder(orderId: orderId)
+            self.orders = self.orders.filter({$0.id != deleteOrder.id})
+        } catch {
+            fatalError("ERROR delete order: \(error.localizedDescription)")
+        }
+    }
+    
+    func updateOrder(_ order: Order) async {
+        do {
+            let updateOrder = try await webservice.updateOrder(order)
+            guard let index = self.orders.firstIndex(where: {$0.id == updateOrder.id}) else {
+                fatalError("Error getting update order id")
+            }
+            self.orders[index] = updateOrder
+        } catch {
+            fatalError("Error updating order: \(error.localizedDescription)")
+        }
+    }
+    
+    func orderById(_ id: Int) -> Order? {
+        guard let index = self.orders.firstIndex(where: {$0.id == id}) else {
+            return nil
+        }
+        return self.orders[index]
+    }
 }

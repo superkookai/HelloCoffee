@@ -11,6 +11,12 @@ struct ContentView: View {
     @EnvironmentObject private var model: CoffeeModel
     @State private var showAddOrderView: Bool = false
     
+    private func deleteOrder(orderId: Int) {
+        Task {
+            await model.deleteOrder(orderId: orderId)
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -19,12 +25,26 @@ struct ContentView: View {
                         .accessibilityIdentifier("noOrdersText")
                 } else {
                     List(model.orders) { order in
-                        OrderCellView(order: order)
+                        NavigationLink(value: order.id) {
+                            OrderCellView(order: order)
+                                .swipeActions {
+                                    Button(role: .destructive) {
+                                        deleteOrder(orderId: order.id!)
+                                    } label: {
+                                        Image(systemName: "trash")
+                                    }
+                                    .accessibilityIdentifier("Delete")
+                                }
+                        }
                     }
+                    .accessibilityIdentifier("orderList")
                     .listStyle(.plain)
                 }
             }
             .navigationTitle("Orders")
+            .navigationDestination(for: Int.self, destination: { orderId in
+                OrderDetailView(orderId: orderId)
+            })
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
@@ -37,7 +57,7 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $showAddOrderView) {
-                AddCoffeeView()
+                AddEditCoffeeView()
             }
         }
         .task {
