@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "21FB671A-F9E9-411F-95D0-3A0104DDBF52",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "region" : "US",
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:HelloCoffee.xcodeproj",
+      "identifier" : "EFED0F032D76B48B004D09A0",
+      "name" : "HelloCoffee"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:HelloCoffee.xcodeproj",
+        "identifier" : "EFED0F332D76CF8A004D09A0",
+        "name" : "HelloCoffeeE2ETests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -8,17 +8,47 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject private var model: CoffeeModel
+    @State private var showAddOrderView: Bool = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                if model.orders.isEmpty {
+                    Text("No orders available!")
+                        .accessibilityIdentifier("noOrdersText")
+                } else {
+                    List(model.orders) { order in
+                        OrderCellView(order: order)
+                    }
+                    .listStyle(.plain)
+                }
+            }
+            .navigationTitle("Orders")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showAddOrderView.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                    .tint(.black)
+                    .accessibilityIdentifier("addNewOrderButton")
+                }
+            }
+            .sheet(isPresented: $showAddOrderView) {
+                AddCoffeeView()
+            }
         }
-        .padding()
+        .task {
+            await model.populateOrders()
+        }
     }
 }
 
 #Preview {
+    var config = Configuration()
     ContentView()
+        .environmentObject(CoffeeModel(webservice: Webservice(baseURL: config.environment.baseURL)))
 }
+
